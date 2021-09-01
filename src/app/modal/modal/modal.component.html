@@ -1,0 +1,12 @@
+<div class="wrapper">
+    <div class="content">
+        <div>
+            <p>{{(modal | async).text}}</p>
+        </div>
+        <div style="flex-direction: row; display: flex;">
+            <button (click)="onModalAction(true)" class="btn btn-lg btnx-custom-ok">Tak</button>
+            <button (click)="onModalAction(false)" class="btn btn-lg btnx-custom-cancel">Nie</button>
+        </div>
+    </div>
+</div>
+ 

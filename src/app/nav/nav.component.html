@@ -1,0 +1,21 @@
+<ul class="nav justify-content-between">
+  <a class="navbar-brand" [routerLink]="['/']"> </a>
+    <div class="form-inline">
+      <ng-container *ngIf="!(user | async)">
+        <li class="nav-item">
+          <a class="nav-link active" [routerLink]="['/login']" routerLinkActive="active" >Logowanie</a>
+        </li>
+      </ng-container>
+    
+      <ng-container *ngIf="(user | async) as user">
+        <p class="item">
+          <span>Witaj <b>{{user.username | titlecase}}</b></span> 
+        </p>
+        <li class="nav-item">
+          <a class="nav-link" (click)="logout()" style="cursor: pointer;">Wyloguj</a>
+        </li>
+      </ng-container>
+  
+    </div>
+  
+  </ul>
