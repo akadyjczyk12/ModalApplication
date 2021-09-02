@@ -2,7 +2,7 @@ import { Injectable } from '@angular/core';
 import { Router } from '@angular/router';
 import { BehaviorSubject } from 'rxjs';
 import { ModalService } from '../modal/modal.service';
-import { User } from '../_interfaces/User';
+import { User } from '../_interfaces/user';
 
 @Injectable({
   providedIn: 'root'

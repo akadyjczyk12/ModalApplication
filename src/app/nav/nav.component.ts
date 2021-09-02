@@ -2,7 +2,7 @@ import { Component, OnInit } from '@angular/core';
 import { Router } from '@angular/router';
 import { Observable } from 'rxjs';
 import { AuthService } from '../auth/auth.service';
-import { User } from '../_interfaces/User';
+import { User } from '../_interfaces/user';
 
 @Component({
   selector: 'app-nav',

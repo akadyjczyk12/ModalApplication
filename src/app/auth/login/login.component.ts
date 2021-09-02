@@ -21,12 +21,11 @@ export class LoginComponent implements OnInit {
 
   onSubmit(): void {
     this.modalService.initialize('Czy chcesz się zalogować?')
-      .afterClosed()
       .subscribe((isOnYes: boolean) => {
         if (isOnYes) {
           this.authService.login(this.model);
         } else {
-          window.alert('Błąd logowania!');
+          console.log('Błąd logowania!');
         }
       });
   }

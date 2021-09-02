@@ -1,7 +1,7 @@
 import { Injectable } from '@angular/core';
 import { BehaviorSubject, Observable, Subject } from 'rxjs';
 import { take } from 'rxjs/operators';
-import { ModalData } from 'src/app/_interfaces/ModalData';
+import { ModalData } from 'src/app/_interfaces/modalData';
 
 @Injectable({
   providedIn: 'root'
@@ -16,12 +16,8 @@ export class ModalService {
 
   constructor() {}
 
-  initialize(text: string): this {
+  initialize(text: string): Observable<boolean> {
     this.modalSource.next({ text, isActive: true });
-    return this;
-  }
-
-  afterClosed(): Observable<boolean> {
     return this.afterClosed$;
   }
 

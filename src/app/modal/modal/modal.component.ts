@@ -1,6 +1,6 @@
 import { Component } from '@angular/core';
 import { Observable } from 'rxjs';
-import { ModalData } from 'src/app/_interfaces/ModalData';
+import { ModalData } from 'src/app/_interfaces/modalData';
 import { ModalService } from '../modal.service';
 
 @Component({
