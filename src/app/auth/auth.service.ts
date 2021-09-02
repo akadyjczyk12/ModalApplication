@@ -16,7 +16,6 @@ export class AuthService {
 
   login(model: User): void {
     if (model) {
-      console.log(model);
       localStorage.setItem('user', JSON.stringify(model));
       this.dataSource.next(model);
       this.router.navigateByUrl('dashboard');

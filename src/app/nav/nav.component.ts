@@ -12,13 +12,12 @@ import { User } from '../_interfaces/user';
 export class NavComponent implements OnInit {
 
   user: Observable<User> = this.authService.userData$;
-  constructor(public authService: AuthService, private router: Router) { }
+  constructor(public authService: AuthService) { }
 
   ngOnInit(): void {}
 
   logout(): void {
     this.authService.logout();
-    this.router.navigate(['login']);
   }
 
 }
