@@ -6,7 +6,7 @@ import { User } from '../_interfaces/user';
 @Component({
   selector: 'app-nav',
   templateUrl: './nav.component.html',
-  styleUrls: ['./nav.component.scss']
+  styleUrls: ['./nav.component.css']
 })
 export class NavComponent implements OnInit {
 

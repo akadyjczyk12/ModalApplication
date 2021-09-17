@@ -1,13 +1,15 @@
-import { Component, OnInit } from '@angular/core';
+import { Component, OnDestroy } from '@angular/core';
+import { Subscription } from 'rxjs';
 import { ModalService } from 'src/app/modal/modal.service';
 import { AuthService } from '../auth.service';
 
 @Component({
   selector: 'app-login',
   templateUrl: './login.component.html',
-  styleUrls: ['./login.component.scss']
+  styleUrls: ['./login.component.css']
 })
-export class LoginComponent implements OnInit {
+export class LoginComponent implements OnDestroy {
+  private subscription = new Subscription();
 
   public model = {
     username: '',
@@ -16,18 +18,17 @@ export class LoginComponent implements OnInit {
 
   constructor(private authService: AuthService, private modalService: ModalService) { }
 
-  ngOnInit(): void {
+  ngOnDestroy(): void {
+    this.subscription.unsubscribe();
   }
 
   onSubmit(): void {
-    this.modalService.initialize('Czy chcesz się zalogować?')
-      .subscribe((isOnYes: boolean) => {
-        if (isOnYes) {
-          this.authService.login(this.model);
-        } else {
-          console.log('Błąd logowania!');
-        }
-      });
+    this.subscription.add(this.modalService.initialize('Czy chcesz się zalogowac?').subscribe(onYes => {
+      if (onYes) {
+        this.authService.login(this.model);
+      } else {
+        console.log('Nie pozwalasz...');
+      }
+    }));
   }
-
 }
